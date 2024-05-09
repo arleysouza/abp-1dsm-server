@@ -23,7 +23,7 @@ app.use(cors());
 app.use(express.json());
 // Inicializa o servidor na porta especificada
 app.listen(PORTA, () => {
-    console.log(`Rodando na porta ${PORTA}`);
+    console.log(`Rodando na porta ${PORTA}...`);
 });
 
 // Define a rota /usuario usando o método HTTP POST
