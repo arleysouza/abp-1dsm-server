@@ -14,9 +14,9 @@ const pool = new Pool({
   port: process.env.BDPORTA
 });
 */
-const uri = "postgres://qqxltwty:UAq_0RAGP9xX0uivam5uYLzN1lu5igjG@kesavan.db.elephantsql.com/qqxltwty";
-//const uri = "postgres://bdapi_user:2VVcTUs9Mj4EjNWyCFUMJWHMphp1zA9a@dpg-cou0mn0l6cac73cab66g-a/bdapi";
-//const uri = "postgres://bdapi_user:2VVcTUs9Mj4EjNWyCFUMJWHMphp1zA9a@dpg-cou0mn0l6cac73cab66g-a.oregon-postgres.render.com/bdapi
+
+// substituir pela URL do seu BD na nuvem
+const uri = "postgres://bdapi_user:2VVcTUs9Mj4EjNWyCFUMJWHMphp1zA9a@dpg-cou0mn0l6cac73cab66g-a.oregon-postgres.render.com/bdapi";
 const pool = new Pool({
   connectionString: uri,
   ssl: {
