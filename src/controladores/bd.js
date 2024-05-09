@@ -15,10 +15,10 @@ const pool = new Pool({
 });
 */
 
-// substituir pela URL do seu BD na nuvem
-const uri = "postgres://bdapi_user:2VVcTUs9Mj4EjNWyCFUMJWHMphp1zA9a@dpg-cou0mn0l6cac73cab66g-a.oregon-postgres.render.com/bdapi";
+// Configura o pool de conexão, passando um objeto de configuração 
+// A URI de conexão precisa estar na variável de ambiente BDURI do arquivo .env
 const pool = new Pool({
-  connectionString: uri,
+  connectionString: process.env.BDURI,
   ssl: {
     rejectUnauthorized: false // Ajuste necessário caso esteja utilizando SSL e seu ambiente requeira essa configuração
   }

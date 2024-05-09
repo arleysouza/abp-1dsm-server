@@ -1,9 +1,12 @@
 const { pool } = require("./bd.js");
 
 async function listar(req, res) {
-  // Procura na tbusuario o 1o registro que satisfaz as condições
+  // retorna 4 questões aleatórias
   let resposta = await pool.query(
-    "SELECT idquestao,enunciado FROM tbquestao ORDER BY enunciado"
+    `SELECT idquestao, enunciado 
+     FROM tbquestao 
+     ORDER BY RANDOM() 
+     LIMIT 4`
   );
 
   return res.json(resposta.rows);
