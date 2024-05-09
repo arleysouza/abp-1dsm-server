@@ -1,7 +1,7 @@
 ## ABP - 1DSM - 2024-1 - Código de Exemplo do Servidor
 
-O código sobe um servidor que faz a conexão com o SGBD PostgreSQL.
-O SGBD pode estar no localhost ou em alguma cloud, aqui sugere-se o uso de uma instância do SGBD PostgreSQL no Render.
+O código é usado para subir um servidor que faz a conexão com o SGBD PostgreSQL.
+O SGBD pode estar no localhost ou em alguma cloud. Porém, sugere-se o uso de uma instância do SGBD PostgreSQL no Render.
 
 ### Instruções de uso
 
@@ -19,12 +19,12 @@ npm i
 
 ### Passos para criar o BD
 
-O BD pode ser criado localmente (Passos 1 e 4) ou no Render (Passos 5 a 9).
+O BD pode ser criado localmente (Passos 1 a 4) ou no Render (Passos 5 a 9).
 
 #### BD no localhost
 
 1. Acesse o SGBD PostgreSQL usando o pgAdmin e crie um BD de nome `bdabp`;
-2. No pgAdmin, execute os comandos SQL a seguir para criar as tabelas `tbusuario` e `tbquestao`. Essas tabelas serão usados para você testar o código, posteriormente, você terá de criar mais tabelas:
+2. No pgAdmin, execute os comandos SQL a seguir para criar as tabelas `tbusuario` e `tbquestao`. Essas tabelas serão usadas para você testar o código, posteriormente, você terá de criar mais tabelas:
 ```
 DROP TABLE if exists tbusuario;
 DROP TABLE if exists tbquestao;
@@ -87,7 +87,7 @@ const pool = new Pool({
 
 5. Acesse o Render e crie uma instância do SGBD PostgreSQL, por exemplo, forneça o nome `abp-1dsm-sgbd`;
 6. No Render, copie `External Database URL`, que é URL de acesso a instância do SGBD;
-7. No VS Code, atualize o arquivo `.env` para ter somente as variáveis `PORTA` e `BDURI`, sendo que a variável  `BDURI` terá URL copiada de `External Database URL`:
+7. No VS Code, atualize o arquivo `.env` para ter somente as variáveis `PORTA` e `BDURI`, sendo que a variável  `BDURI` terá a URL copiada de `External Database URL`:
 ```
 PORTA = 3030
 BDURI = postgres://bdabp:cole-aqui-a-sua-URL@usuario.oregon-postgres.render.com/bdabp
@@ -112,11 +112,11 @@ const pool = new Pool({
   port: process.env.BDPORTA
 });
 ```
-9. No CMD (prompt de comando), acesse a pasta onde está instalado o SGBD PostgreSQL do seu computador e localize o programa PSQL na pasta `bin`. Um exemplo de caminho pode ser `C:\Program Files\PostgreSQL\14\bin`. Digite o comando psql seguido pelo `External Database URL`:
+9. No CMD (prompt de comando), acesse a pasta onde está instalado o SGBD PostgreSQL no seu computador e localize o programa PSQL na pasta `bin`. Um exemplo de caminho pode ser `C:\Program Files\PostgreSQL\14\bin`. Digite o comando psql seguido pelo `External Database URL`:
 ```
 psql postgres://bdabp:cole-aqui-a-sua-URL@usuario.oregon-postgres.render.com/bdabp
 ```
-Se tudo der certo você estará com a conexão para a instância do BD no Render. Copie e cole os comandos SQL a seguir nesse terminal para criar as tabelas `tbusuario` e `tbquestao`. Essas tabelas serão usados para você testar o código, posteriormente, você terá de criar mais tabelas:
+Se tudo der certo você estará conectado à instância do BD no Render. Copie e cole os comandos SQL a seguir nesse terminal para criar as tabelas `tbusuario` e `tbquestao`. Essas tabelas serão usados para você testar o código, posteriormente, você terá de criar mais tabelas:
 ```
 DROP TABLE if exists tbusuario;
 DROP TABLE if exists tbquestao;
