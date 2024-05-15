@@ -1,0 +1,57 @@
+DROP TABLE IF EXISTS tbquestao_por_questionario;
+DROP TABLE IF EXISTS tbquestionario;
+DROP TABLE IF EXISTS tbquestao;
+DROP TABLE IF EXISTS tbusuario;
+
+CREATE TABLE tbusuario (
+  idusuario SERIAL NOT NULL,
+  nome VARCHAR(40) NOT NULL,
+  mail VARCHAR(40) NOT NULL,
+  PRIMARY KEY(idusuario)
+);
+
+CREATE TABLE tbquestao (
+  idquestao SERIAL NOT NULL,
+  enunciado VARCHAR(1000) NOT NULL,
+  resposta BOOL NULL,
+  PRIMARY KEY(idquestao)
+);
+
+CREATE TABLE tbquestionario (
+  idquestionario SERIAL NOT NULL,
+  idusuario INTEGER  NOT NULL,
+  datahorario TIMESTAMP NOT NULL,
+  nota FLOAT NULL,
+  PRIMARY KEY(idquestionario),
+  FOREIGN KEY(idusuario)
+    REFERENCES tbusuario(idusuario)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
+
+CREATE TABLE tbquestao_por_questionario (
+  idquestao INTEGER  NOT NULL,
+  idquestionario INTEGER NOT NULL,
+  acertou BOOL NOT NULL,
+  PRIMARY KEY(idquestao, idquestionario),
+  FOREIGN KEY(idquestao)
+    REFERENCES tbquestao(idquestao)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION,
+  FOREIGN KEY(idquestionario)
+    REFERENCES tbquestionario(idquestionario)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
+
+INSERT INTO tbquestao (enunciado, resposta) 
+VALUES
+('Uma variável é um espaço na memória do computador?', true),
+('O tipo de dado é o conteúdo da variável?', false),
+('Os tipos de dados podem ser primitivos ou objetos?', true),
+('Na estrutura decisão if...else o bloco if pode existir sem o bloco else?', true ),
+('Na estrutura decisão if...else o bloco else pode existir sem o bloco if?', false),
+('A estrutura de decisão if...else pode ser aninhada dentro de um bloco if ou else?', true),
+('Uma estrutura de repetição for pode ser usada quando o número de iterações é desconhecido?', false),
+('O loop do...while executa o bloco de código pelo menos uma vez, mesmo se a condição for inicialmente falsa?', true),
+('Em uma estrutura de repetição while, o bloco de código é executado enquanto a condição especificada for falsa?', false);
