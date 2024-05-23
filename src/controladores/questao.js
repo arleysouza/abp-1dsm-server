@@ -1,6 +1,6 @@
 const { pool } = require("./bd.js");
 
-async function listar(req, res) {
+async function listarQuestao(req, res) {
   // retorna 4 questões aleatórias
   let resposta = await pool.query(
     `SELECT idquestao, enunciado 
@@ -13,4 +13,4 @@ async function listar(req, res) {
 }
 
 // Exporta as funções
-module.exports = { listar };
+module.exports = { listarQuestao };

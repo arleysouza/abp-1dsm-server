@@ -6,7 +6,9 @@ const cors = require("cors");
 // Importa as funções exportadas do módulo usuario
 const { criar, buscar } = require("./controladores/usuario");
 // Importa as funções exportadas do módulo questao
-const { listar } = require("./controladores/questao");
+const { listarQuestao } = require("./controladores/questao");
+// Importa as funções exportadas do módulo questionario
+const { salvarQuestionario, listarQuestionario } = require("./controladores/questionario");
 // Importa o pacote dotenv e coloca na variável dotenv
 const dotenv = require("dotenv");
 // Carregar as variáveis de ambiente do arquivo .env no objeto process.env do Node
@@ -26,15 +28,20 @@ app.listen(PORTA, () => {
     console.log(`Rodando na porta ${PORTA}...`);
 });
 
-// Define a rota /usuario usando o método HTTP POST
-// A rota é mapeada para a função criar
+// Rota para efetuar cadastro
 app.post("/usuario", criar);
 
-// Define a rota /login usando o método HTTP POST
+// Rota para fazer o login
 app.post("/login", buscar);
 
-// Define a rota /usuario usando o método HTTP GET
-app.get("/questao", listar);
+// Rota para listar as questões
+app.get("/questao", listarQuestao);
+
+// Rota para salvar questionário
+app.post("/questionario", salvarQuestionario);
+
+// Rota para resgatar o questionário
+app.get("/questionario", listarQuestionario);
 
 app.use(function(req,res){
     res.json({erro:"Rota desconhecida"});

@@ -20,7 +20,7 @@ CREATE TABLE tbquestao (
 CREATE TABLE tbquestionario (
   idquestionario SERIAL NOT NULL,
   idusuario INTEGER  NOT NULL,
-  datahorario TIMESTAMP NOT NULL,
+  datahorario TIMESTAMP DEFAULT NOW() NOT NULL,
   nota FLOAT NULL,
   PRIMARY KEY(idquestionario),
   FOREIGN KEY(idusuario)
@@ -54,4 +54,23 @@ VALUES
 ('A estrutura de decisão if...else pode ser aninhada dentro de um bloco if ou else?', true),
 ('Uma estrutura de repetição for pode ser usada quando o número de iterações é desconhecido?', false),
 ('O loop do...while executa o bloco de código pelo menos uma vez, mesmo se a condição for inicialmente falsa?', true),
-('Em uma estrutura de repetição while, o bloco de código é executado enquanto a condição especificada for falsa?', false);
+('Em uma estrutura de repetição while, o bloco de código é executado enquanto a condição especificada for falsa?', false),
+('Um array é uma estrutura de dados capaz de manter vários conteúdo', true),
+('No JavaScript o índice da primeira posição de um array é zero',true),
+('No JavaScript a propriedade size é usada para ler a quantidade de elementos do array',false),
+('No Javacript um array é definido usando um par de chaves', false),
+('Um objeto JSON (JavaScript Objetc Notation) é definido usando um par de colchetes', false),
+('Um objeto JSON é formado elementos acessíveis através de índices de posição', false),
+('Um objeto JSON é formado por propriedades', true),
+('Uma propriedade de um objeto JSON é formado pela chave:valor', true),
+('Uma propriedade de um objeto JSON é formado pela chave:valor, onde o valor pode ser qualquer tipo de dado', true),
+('A instrução const {nome} = obj é usada para desestruturar a propriedade nome do objeto JSON que está na variável obj', true),
+('A instrução const {nome:name} = obj é usada para desestruturar a propriedade nome do objeto JSON que está na variável obj e colocar numa variável de nome name', true),
+('A instruççao const {pessoa:{nome}} = obj é usada para desestruturar a propridade nome que está dento de um objeto da propriedade pessoa', true);
+
+INSERT INTO tbusuario (nome, mail) 
+VALUES
+('Maria Silva','maria@teste.com'),
+('Lucas Garcia','lucas@teste.com'),
+('Ana Maria Souza','ana@teste.com'),
+('João Bosco','joao@teste.com');
