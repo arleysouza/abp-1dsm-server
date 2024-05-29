@@ -3,6 +3,8 @@
 O código é usado para subir um servidor que faz a conexão com o SGBD PostgreSQL.
 O SGBD pode estar no localhost ou em alguma cloud. Porém, sugere-se o uso de uma instância do SGBD PostgreSQL no Render.
 
+![](https://github.com/arleysouza/abp-1dsm-server/blob/main/images/modelo-bd.png)
+
 ### Instruções de uso
 
 Antes de prosseguir é necessário ter instalado o Node.js (https://nodejs.org/en/download) e o git (https://git-scm.com/downloads) no seu computador.
