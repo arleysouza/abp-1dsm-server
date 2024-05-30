@@ -26,35 +26,7 @@ O BD pode ser criado localmente (Passos 1 a 4) ou no Render (Passos 5 a 9).
 #### BD no localhost
 
 1. Acesse o SGBD PostgreSQL usando o pgAdmin e crie um BD de nome `bdabp`;
-2. No pgAdmin, execute os comandos SQL a seguir para criar as tabelas `tbusuario` e `tbquestao`. Essas tabelas serão usadas para você testar o código, posteriormente, você terá de criar mais tabelas:
-```
-DROP TABLE if exists tbusuario;
-DROP TABLE if exists tbquestao;
-
-CREATE TABLE tbusuario (
-  idusuario SERIAL PRIMARY KEY,
-  mail VARCHAR(50) NULL,
-  nome VARCHAR(50) NULL
-);
-
-CREATE TABLE tbquestao (
-  idquestao SERIAL PRIMARY KEY,
-  enunciado VARCHAR(256) NULL,
-  resposta BOOL NULL
-);
-
-INSERT INTO tbquestao (enunciado, resposta) 
-VALUES
-('Uma variável é um espaço na memória do computador?', true),
-('O tipo de dado é o conteúdo da variável?', false),
-('Os tipos de dados podem ser primitivos ou objetos?', true),
-('Na estrutura decisão if...else o bloco if pode existir sem o bloco else?', true ),
-('Na estrutura decisão if...else o bloco else pode existir sem o bloco if?', false),
-('A estrutura de decisão if...else pode ser aninhada dentro de um bloco if ou else?', true),
-('Uma estrutura de repetição for pode ser usada quando o número de iterações é desconhecido?', false),
-('O loop do...while executa o bloco de código pelo menos uma vez, mesmo se a condição for inicialmente falsa?', true),
-('Em uma estrutura de repetição while, o bloco de código é executado enquanto a condição especificada for falsa?', false);
-```
+2. No pgAdmin, execute os comandos SQL que estão no arquivo `src/suporte/clausulas_SQL.txt` para criar as tabelas do modelo de BD e carregar alguns dados de teste;
 3. No VS Code, atualize o arquivo `.env` para ter os dados de conexão com o BD `bdabp`, ou algum outro nome que você tenha dado. As variáveis de ambientes do arquivo `.env` possuem os parâmetros usados para fazer a conexão ao BD no SGBD:
 ```
 PORTA = 3030
