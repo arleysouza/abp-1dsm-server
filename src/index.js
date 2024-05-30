@@ -4,7 +4,7 @@ const express = require("express");
 // CORS (Cross-Origin Resource Sharing)
 const cors = require("cors");
 // Importa as funções exportadas do módulo usuario
-const { criar, buscar } = require("./controladores/usuario");
+const { cadastrarUsuario, login } = require("./controladores/usuario");
 // Importa as funções exportadas do módulo questao
 const { listarQuestao } = require("./controladores/questao");
 // Importa as funções exportadas do módulo questionario
@@ -29,10 +29,10 @@ app.listen(PORTA, () => {
 });
 
 // Rota para efetuar cadastro
-app.post("/usuario", criar);
+app.post("/usuario", cadastrarUsuario);
 
 // Rota para fazer o login
-app.post("/login", buscar);
+app.post("/login", login);
 
 // Rota para listar as questões
 app.get("/questao", listarQuestao);

@@ -2,7 +2,7 @@ const { pool } = require("./bd.js");
 
 async function listarQuestao(req, res) {
   // retorna 4 questões aleatórias
-  let resposta = await pool.query(
+  const resposta = await pool.query(
     `SELECT idquestao, enunciado 
      FROM tbquestao 
      ORDER BY RANDOM() 
