@@ -32,7 +32,7 @@ CREATE TABLE tbquestionario (
 CREATE TABLE tbquestao_por_questionario (
   idquestao INTEGER  NOT NULL,
   idquestionario INTEGER NOT NULL,
-  acertou BOOL NOT NULL,
+  resposta BOOL NOT NULL,
   PRIMARY KEY(idquestao, idquestionario),
   FOREIGN KEY(idquestao)
     REFERENCES tbquestao(idquestao)
