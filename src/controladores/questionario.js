@@ -18,7 +18,6 @@ async function listarQuestionario(req, res) {
     if (resposta.rowCount > 0) {
       const questionario = resposta.rows[0];
 
-      // retorna 4 questões aleatórias
       resposta = await pool.query(
         `SELECT b.enunciado, a.resposta as "respondido", b.resposta as "correto" 
         FROM tbquestao_por_questionario as a, tbquestao as b

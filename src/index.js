@@ -35,13 +35,13 @@ app.post("/usuario", cadastrarUsuario);
 app.post("/login", login);
 
 // Rota para listar as questões
-app.get("/questao", listarQuestao);
+app.post("/questao", listarQuestao);
 
 // Rota para salvar questionário
 app.post("/questionario", salvarQuestionario);
 
 // Rota para resgatar o questionário
-app.get("/questionario", listarQuestionario);
+app.post("/listarquestionario", listarQuestionario);
 
 app.use(function(req,res){
     res.json({erro:"Rota desconhecida"});
